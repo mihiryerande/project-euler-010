@@ -7,7 +7,7 @@
 #
 #     Find the sum of all the primes below two million.
 
-def main(n):
+def main(n: int) -> int:
     """
     Returns the sum of all primes less than `n`.
 
@@ -15,7 +15,7 @@ def main(n):
         n (int): Natural number
 
     Returns:
-        Sum of all primes less than `n`.
+        (int): Sum of all primes less than `n`
 
     Raises:
         AssertError: if incorrect params are given
@@ -37,12 +37,11 @@ def main(n):
         i += 1
 
     ps = list(map(lambda yi: yi[0]+1, filter(lambda xi: xi[1], enumerate(sieve))))
-    return ps, sum(ps)
+    return sum(ps)
 
 
 if __name__ == '__main__':
     num = int(input('Enter a natural number: '))
-    primes, total = main(num)
-    print('Sum of primes below {}:\n  {}'.format(num, total))
-    # print('Primes below {}:'.format(num))
-    # print('  {}'.format('\n  '.join(map(str, primes))))
+    total = main(num)
+    print('Sum of primes below {}:'.format(num))
+    print('  {}'.format(total))
